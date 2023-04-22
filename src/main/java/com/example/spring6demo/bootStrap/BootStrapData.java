@@ -39,13 +39,18 @@ public class BootStrapData implements CommandLineRunner {
 
         a1Saved.getBooks().add(b1Saved);
         a2Saved.getBooks().add(b2Saved);
+        b1Saved.getAuthors().add(a1Saved);
+        b2Saved.getAuthors().add(a2Saved);
 
         b1Saved.setPublisher(p1Saved);
+        b2Saved.setPublisher(p1Saved);
         p1Saved.getBooks().add(b1Saved);
         p1Saved.getBooks().add(b2Saved);
 
         authorRepository.save(a1Saved);
         authorRepository.save(a2Saved);
+        bookRepository.save(b1Saved);
+        bookRepository.save(b2Saved);
 
         System.out.println("BootStrapData");
         System.out.println(String.format("AuthorRepository count: %s", authorRepository.count()));
